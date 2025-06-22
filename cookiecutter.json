@@ -1,6 +1,6 @@
 {
-  "full_name": "Anonymous",
-  "email": "anon@anon.net",
+  "full_name": "James Wellnitz",
+  "email": "wellnitz.james@gmail.com",
   "project_name": "My Project",
   "__project_name_lc__": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "__project_name_cc__": "{{ cookiecutter.project_name.replace(' ', '') }}",
@@ -8,5 +8,6 @@
   "__repo_name__": "{{ cookiecutter.__project_slug__.replace('_', '-') }}",
   "proj_desc": "My Project Description",
   "version": "0.1.0a0",
-  "python_version": ">=3.9,<4.0"
+  "python_version": ">=3.9,<4.0",
+  "open_source_license": ["No license file", "MIT", "BSD-3-Clause"]
 }

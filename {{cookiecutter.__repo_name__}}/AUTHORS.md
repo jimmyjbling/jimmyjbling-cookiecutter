@@ -1,5 +1,5 @@
 # Authors
 
-## James Wellnitz
+## {{cookiecutter.full_name}}
 **Role:** Lead Developer
-**Email:** wellnitz.james@gmail.com
+**Email:** {{cookiecutter.email}}
