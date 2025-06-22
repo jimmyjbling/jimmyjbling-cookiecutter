@@ -2,7 +2,10 @@
 name = "{{ cookiecutter.__repo_name__ }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.proj_desc }}"
+
+{% if cookiecutter.license == 'MIT' %}
 license = "{{ cookiecutter.license }}"
+{% endif %}
 authors = [
     "{{cookiecutter.full_name}} <{{cookiecutter.email}}>",
 ]
@@ -10,7 +13,7 @@ maintainers = [
     "{{cookiecutter.full_name}} <{{cookiecutter.email}}>",
 ]
 readme = "README.md"
-repository = "https://github.com/jimmyjbling/{{ cookitecutter.__repo_name__ }}"
+repository = "https://github.com/jimmyjbling/{{ cookiecutter.__repo_name__ }}"
 classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent"

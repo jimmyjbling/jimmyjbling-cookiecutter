@@ -9,5 +9,5 @@
   "proj_desc": "My Project Description",
   "version": "0.1.0a0",
   "python_version": ">=3.9,<4.0",
-  "open_source_license": ["No license file", "MIT", "BSD-3-Clause"]
+  "license": ["No license file", "MIT", "BSD-3-Clause"]
 }
