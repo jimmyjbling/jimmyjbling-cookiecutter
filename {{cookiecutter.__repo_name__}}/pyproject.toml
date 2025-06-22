@@ -1,0 +1,117 @@
+[tool.poetry]
+name = "{{ cookiecutter.__repo_name__ }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.proj_desc }}"
+license = "{{ cookiecutter.license }}"
+authors = [
+    "James Wellnitz <wellnitz.james@gmail.com>",
+]
+maintainers = [
+    "James Wellnitz <wellnitz.james@gmail.com>>",
+]
+readme = "README.md"
+repository = "https://github.com/jimmyjbling/{{ cookitecutter.__repo_name__ }}"
+classifiers = [
+    "Natural Language :: English",
+    "Operating System :: OS Independent"
+]
+packages = [
+    { include = "{{ cookiecutter.__project_slug__ }}", from = "src"},
+    { include = "{{ cookiecutter.__project_slug__ }}/py.typed", from = "src"},
+]
+requires-poetry = ">=2.0"
+
+[tool.poetry.scripts]
+{{ cookiecutter.__project_name_lc__.replace('_', '-') }}-cli = "{{ cookiecutter.__project_slug__ }}.{{ cookiecutter.__project_name_lc__ }}_cli:cli"
+
+[tool.poetry.dependencies]
+python = "{{ cookiecutter.python_version }}"
+click = "^8.1.3"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.2.0"
+mypy = "^1.8.0"
+poetry = "^2.1.3"
+poetry-bumpversion = "^0.3.1"
+ruff = "^0.5.5"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "~7.2.0"
+pytest-cov = "~4.0.0"
+pytest-html = "^3.2.0"
+pytest-xdist = "^3.5.0"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^7.1.2"
+sphinx_rtd_theme = "^1.3.0"
+sphinx-markdown-builder = "^0.6.8"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry_bumpversion.file."docs/conf.py"]
+search = 'release = "{current_version}"'
+replace = 'release = "{new_version}"'
+
+[tool.poetry_bumpversion.file."src/{{ cookiecutter.__project_slug__ }}/__init__.py"]
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+[[tool.mypy.overrides]]
+module = ["untyped_package.*"]
+follow_untyped_imports = true
+
+[tool.mypy]
+files = ["src"]
+
+[tool.coverage.report]
+fail_under = 75
+
+[tool.pytest.ini_options]
+addopts = """
+    --color=yes
+    --html=test-results/unit-tests-results.html
+"""
+markers = [
+    "unit: marks tests as unit tests",
+    "functional: marks test as functional tests",
+]
+testpaths = ["tests"]
+
+[tool.ruff]
+lint.select = [
+    "F",
+    "E",
+    "W",
+    "I001",
+    "I002",
+    "B",
+    "D"
+]
+src = ["src", "tests"]
+line-length = 99
+lint.ignore = [
+    "D400",
+    "D401",
+    "D200"
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2

@@ -1,0 +1,12 @@
+{
+  "full_name": "Anonymous",
+  "email": "anon@anon.net",
+  "project_name": "My Project",
+  "__project_name_lc__": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "__project_name_cc__": "{{ cookiecutter.project_name.replace(' ', '') }}",
+  "__project_slug__": "{{ cookiecutter.__project_name_lc__ }}",
+  "__repo_name__": "{{ cookiecutter.__project_slug__.replace('_', '-') }}",
+  "proj_desc": "My Project Description",
+  "version": "0.1.0a0",
+  "python_version": ">=3.9,<4.0"
+}
