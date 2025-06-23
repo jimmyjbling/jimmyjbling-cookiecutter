@@ -12,6 +12,10 @@ test-results/
 *.exe
 *.war
 
+dist/
+notebooks/
+data/
+
 .env
 .venv
 env/
